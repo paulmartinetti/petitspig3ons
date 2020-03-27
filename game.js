@@ -116,7 +116,7 @@ function create() {
         frames: this.anims.generateFrameNames('pigeonAtlas', {
             prefix: 'pgn',
             start: 1,
-            end: 6,
+            end: 10,
             zeroPad: 2
         }),
         repeat: 0
@@ -155,12 +155,12 @@ function update() {
         if (this.cursors.right.isDown) {
             this.pigeon.play('walk', true);
             this.pigeon.scaleX = -1;
-            this.pigeon.x += 2;
+            this.pigeon.x += 1;
     
         } else if (this.cursors.left.isDown){
             this.pigeon.play('walk', true);
             this.pigeon.scaleX = 1;
-            this.pigeon.x -= 2;
+            this.pigeon.x -= 1;
         }
     
     }
