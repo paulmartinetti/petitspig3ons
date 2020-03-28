@@ -115,9 +115,9 @@ function create() {
         key: 'walk',
         frames: this.anims.generateFrameNames('pigeonAtlas', {
             prefix: 'pgn',
-            start: 1,
-            end: 10,
-            zeroPad: 2
+            frames: [1,2,3,4,5,6,7,8,9,10,2],
+            zeroPad: 2,
+            frameRate: 24,
         }),
         repeat: 0
     }, this);
@@ -155,12 +155,12 @@ function update() {
         if (this.cursors.right.isDown) {
             this.pigeon.play('walk', true);
             this.pigeon.scaleX = -1;
-            this.pigeon.x += 1;
+            this.pigeon.x += 0.65;
     
         } else if (this.cursors.left.isDown){
             this.pigeon.play('walk', true);
             this.pigeon.scaleX = 1;
-            this.pigeon.x -= 1;
+            this.pigeon.x -= 0.65;
         }
     
     }
