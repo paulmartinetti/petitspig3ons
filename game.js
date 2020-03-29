@@ -116,13 +116,22 @@ function create() {
         frames: this.anims.generateFrameNames('pigeonAtlas', {
             prefix: 'pgn',
             frames: [1,2,3,4,5,6,7,8,9,10,2],
-            zeroPad: 2,
-            frameRate: 24,
+            zeroPad: 3,
         }),
         repeat: 0
     }, this);
-
+    // zero pad is number of total digits - i.e. 003 = 3, 011 = 3..
+    console.log(this.anims.create({
+        key: 'vaviens',
+        frames: this.anims.generateFrameNames('pigeonAtlas', {
+            prefix: 'pgn',
+            frames: [11, 12, 13, 14, 15, 11],
+            zeroPad: 3,
+        }),
+        repeat: 0
+    }, this));
     // flying in and ou
+    
     
 
     // peck - pick up cheese
@@ -161,6 +170,11 @@ function update() {
             this.pigeon.play('walk', true);
             this.pigeon.scaleX = 1;
             this.pigeon.x -= 0.65;
+
+        } else if (this.cursors.down.isDown){
+            this.pigeon.play('vaviens', true);
+            this.pigeon.y += 0.65;
+
         }
     
     }
