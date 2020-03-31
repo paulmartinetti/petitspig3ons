@@ -135,8 +135,9 @@ function create() {
         key: 'va',
         frames: this.anims.generateFrameNames('pigeonAtlas', {
             prefix: 'pgn',
-            frames: [16, 17, 18, 19, 20, 16],
+            frames: [16, 17, 18, 19, 20, 21, 22],
             zeroPad: 3,
+            frameRate: 24,
         }),
         repeat: 0
     }, this);
