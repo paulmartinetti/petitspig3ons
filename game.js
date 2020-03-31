@@ -115,32 +115,40 @@ function create() {
         key: 'walk',
         frames: this.anims.generateFrameNames('pigeonAtlas', {
             prefix: 'pgn',
-            frames: [1,2,3,4,5,6,7,8,9,10,2],
+            frames: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 2],
             zeroPad: 3,
         }),
         repeat: 0
     }, this);
     // zero pad is number of total digits - i.e. 003 = 3, 011 = 3..
-    console.log(this.anims.create({
-        key: 'vaviens',
+    this.anims.create({
+        key: 'viens',
         frames: this.anims.generateFrameNames('pigeonAtlas', {
             prefix: 'pgn',
             frames: [11, 12, 13, 14, 15, 11],
             zeroPad: 3,
         }),
         repeat: 0
-    }, this));
-    // flying in and ou
-    
-    
+    }, this);
+    // walk away
+    this.anims.create({
+        key: 'va',
+        frames: this.anims.generateFrameNames('pigeonAtlas', {
+            prefix: 'pgn',
+            frames: [16, 17, 18, 19, 20, 16],
+            zeroPad: 3,
+        }),
+        repeat: 0
+    }, this);
+
 
     // peck - pick up cheese
-   
-    
+
+
     // accepts private A of two skins while hopping
-   
+
     this.cursors = this.input.keyboard.createCursorKeys();
-    
+
 }
 
 // about 100 times per second
@@ -165,18 +173,22 @@ function update() {
             this.pigeon.play('walk', true);
             this.pigeon.scaleX = -1;
             this.pigeon.x += 0.65;
-    
-        } else if (this.cursors.left.isDown){
+
+        } else if (this.cursors.left.isDown) {
             this.pigeon.play('walk', true);
             this.pigeon.scaleX = 1;
             this.pigeon.x -= 0.65;
 
-        } else if (this.cursors.down.isDown){
-            this.pigeon.play('vaviens', true);
+        } else if (this.cursors.down.isDown) {
+            this.pigeon.play('viens', true);
             this.pigeon.y += 0.65;
 
+        } else if (this.cursors.up.isDown) {
+            this.pigeon.play('va', true);
+            this.pigeon.y -= 0.65;
+
         }
-    
+
     }
 
 }
